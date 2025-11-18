@@ -1,4 +1,3 @@
-import axios from 'axios';
 import client from './client';
 
 export const authenticateUser = async (name: string, password:string) => {

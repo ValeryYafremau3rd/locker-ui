@@ -1,34 +1,39 @@
 import { takeLatest, put, call } from "redux-saga/effects";
 import { authenticateUser, createUser } from "../../api/auth";
-import { loginUser, loginUserFailure, loginUserSuccess, signupUser } from "../reducers/authSlice";
-import { jwtDecode } from 'jwt-decode';
+import {
+  loginUser,
+  loginUserFailure,
+  loginUserSuccess,
+  signupUser,
+} from "../reducers/authSlice";
+import { jwtDecode } from "jwt-decode";
+import { setAuthToken } from "../../services/auth.service";
 
-function* handleLogin(action) {
+function* handleLogin(action: any) {
   try {
     const { username, password } = action.payload;
     const { accessToken } = yield call(authenticateUser, username, password);
-
-    localStorage.setItem("authToken", accessToken);
-    const decodedToken = jwtDecode(accessToken);
-
-    yield put(loginUserSuccess(decodedToken));
+    yield loginSuccess(accessToken);
   } catch (error: any) {
     yield put(loginUserFailure(error.message));
   }
 }
 
-function* handleSignup(action) {
+function* handleSignup(action: any) {
   try {
     const { username, password } = action.payload;
     const { accessToken } = yield call(createUser, username, password);
-
-    localStorage.setItem("authToken", accessToken);
-    const decodedToken = jwtDecode(accessToken);
-
-    yield put(loginUserSuccess(decodedToken));
+    yield loginSuccess(accessToken);
   } catch (error: any) {
     yield put(loginUserFailure(error.message));
   }
+}
+
+function* loginSuccess(accessToken: string) {
+  setAuthToken(accessToken);
+  const decodedToken = jwtDecode(accessToken);
+
+  yield put(loginUserSuccess(decodedToken));
 }
 
 function* authSaga() {
