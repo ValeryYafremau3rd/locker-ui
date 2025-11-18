@@ -1,8 +1,8 @@
 import { ReduxActionTypes } from "./ActionTypes";
 
-export const fetchProductData = (data?: any) => {  
+export const fetchMe = (data?: any) => {  
     return {
-        type: ReduxActionTypes.FETCH_PRODUCTS,
+        type: ReduxActionTypes.FETCH_ME,
         payload: data,
     }
 }

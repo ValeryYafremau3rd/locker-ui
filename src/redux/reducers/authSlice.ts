@@ -10,30 +10,29 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    loginUser(state, action) {
+    loginUser(state: typeof initialState) {
       state.status = 'pending';
     },
-    loginUserSuccess(state, action) {
+    loginUserSuccess(state: typeof initialState, action: any) {
       state.user = action.payload;
       state.error = null;
       state.status = 'complete';
-      console.log(state)
     },
-    loginUserFailure(state, action) {
+    loginUserFailure(state: typeof initialState, action: any) {
       state.user = null;
       state.error = action.payload;
       state.status = 'failed';
     },
-    signupUser(state, action) {
+    signupUser(state: typeof initialState) {
       state.status = 'pending';
     },
-    signupUserSuccess(state, action) {
+    signupUserSuccess(state: typeof initialState, action: any) {
       state.user = action.payload;
       console.log(action.payload)
       state.error = null;
       state.status = 'complete';
     },
-    signupnUserFailure(state, action) {
+    signupnUserFailure(state: typeof initialState, action: any) {
       state.user = null;
       state.error = action.payload;
       state.status = 'failed';
@@ -50,5 +49,4 @@ export const {
   signupUserFailure 
 } = authSlice.actions;
 
-console.log(authSlice.reducer)
 export default authSlice.reducer;

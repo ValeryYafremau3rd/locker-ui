@@ -1,25 +1,25 @@
 export enum ReduxActionTypes {
-    FETCH_PRODUCTS = "FETCH_PRODUCTS",
-    FETCH_PRODUCTS_SUCCESS = "FETCH_PRODUCTS_SUCCESS",
-    FETCH_PRODUCTS_ERROR = "FETCH_PRODUCTS_ERROR"
+  FETCH_ME = "FETCH_ME",
+  FETCH_ME_SUCCESS = "FETCH_ME_SUCCESS",
+  FETCH_ME_ERROR = "FETCH_ME_ERROR",
 }
 
-export interface FetchProductDataAction {
-    type: ReduxActionTypes.FETCH_PRODUCTS;
-    payload: any;
+export interface FetchMeAction {
+  type: ReduxActionTypes.FETCH_ME;
+  payload: any;
 }
 
-export interface FetchProductDataSuccessAction {
-    type: ReduxActionTypes.FETCH_PRODUCTS_SUCCESS;
-    payload: any;
+export interface FetchMeSuccessAction {
+  type: ReduxActionTypes.FETCH_ME_SUCCESS;
+  payload: any;
 }
 
-export interface FetchProductDataErrorAction {
-    type: ReduxActionTypes.FETCH_PRODUCTS_ERROR;
-    error: string;
+export interface FetchMeErrorAction {
+  type: ReduxActionTypes.FETCH_ME_ERROR;
+  error: string;
 }
 
 export type ActionTypes =
-    FetchProductDataAction
-    | FetchProductDataSuccessAction
-    | FetchProductDataErrorAction;
+  | FetchMeAction
+  | FetchMeSuccessAction
+  | FetchMeErrorAction;
