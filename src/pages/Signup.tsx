@@ -37,7 +37,7 @@ const Signup = () => {
           />
         </div>
         <div className="w-1/1">
-          <button type="submit"  className="m-3 p-2 float-right">Signup</button>
+          <button type="submit"  className="m-3 p-2 float-right bg-green-600">Signup</button>
         </div>
       </form>
     </div>

@@ -28,7 +28,6 @@ const authSlice = createSlice({
     },
     signupUserSuccess(state: typeof initialState, action: any) {
       state.user = action.payload;
-      console.log(action.payload)
       state.error = null;
       state.status = 'complete';
     },

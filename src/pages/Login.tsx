@@ -37,7 +37,7 @@ const Login = () => {
           />
         </div>
         <div className="w-1/1">
-          <button type="submit"  className="m-3 p-2 float-right">Login</button>
+          <button type="submit"  className="m-3 p-2 float-right bg-green-600">Login</button>
         </div>
       </form>
     </div>

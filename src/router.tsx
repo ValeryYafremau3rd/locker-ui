@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Account from "./pages/Accout";
+import Board from "./pages/Board";
+import CreateBoard from "./pages/CreateBoard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -24,6 +26,19 @@ export default createBrowserRouter([
           {
             path: "/me",
             element: <Account />,
+          },
+          {
+            path: "/board",
+            children: [
+              {
+                path: "/board/create",
+                element: <CreateBoard />,
+              },
+              {
+                path: "/board/:id",
+                element: <Board />,
+              },
+            ],
           },
         ],
       },
