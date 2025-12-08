@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Account from "./pages/Accout";
+import Account from "./pages/Account";
 import Board from "./pages/Board";
 import CreateBoard from "./pages/CreateBoard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Ticket from "./pages/Ticket";
 
 export default createBrowserRouter([
   {
@@ -37,6 +38,19 @@ export default createBrowserRouter([
               {
                 path: "/board/:id",
                 element: <Board />,
+              },
+            ],
+          },
+          {
+            path: "/tickets",
+            children: [
+              {
+                path: "/tickets/create",
+                element: <Ticket />,
+              },
+              {
+                path: "/tickets/:id",
+                element: <Ticket />,
               },
             ],
           },

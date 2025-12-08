@@ -28,7 +28,6 @@ const CreateBoard = () => {
           <button
             type="input"
             className="m-2 bg-gray-600"
-            onClick={navigate.bind(this, -1)}
           >
             Cancel
           </button>
