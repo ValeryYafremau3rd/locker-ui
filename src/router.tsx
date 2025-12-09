@@ -3,10 +3,12 @@ import App from "./App";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Account from "./pages/Account";
 import Board from "./pages/Board";
+import Boards from "./pages/Boards";
 import CreateBoard from "./pages/CreateBoard";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Ticket from "./pages/Ticket";
+import Tickets from "./pages/Tickets";
 
 export default createBrowserRouter([
   {
@@ -29,15 +31,19 @@ export default createBrowserRouter([
             element: <Account />,
           },
           {
-            path: "/board",
+            path: "/boards",
             children: [
               {
-                path: "/board/create",
+                path: "/boards/create",
                 element: <CreateBoard />,
               },
               {
-                path: "/board/:id",
+                path: "/boards/:id",
                 element: <Board />,
+              },
+              {
+                path: "/boards",
+                element: <Boards />,
               },
             ],
           },
@@ -51,6 +57,10 @@ export default createBrowserRouter([
               {
                 path: "/tickets/:id",
                 element: <Ticket />,
+              },
+              {
+                path: "/tickets",
+                element: <Tickets />,
               },
             ],
           },

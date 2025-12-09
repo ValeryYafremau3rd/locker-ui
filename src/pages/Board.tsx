@@ -24,14 +24,16 @@ const Board = () => {
   return (
     <div>
       <div className=" text-md m-3">
-        {activeBoard.title}
+        <div className="text-2xl text-white my-4 text-amber-300">
+          {activeBoard.title}
+        </div>
         <button
-          className="bg-green-500 float-right"
+          className="bg-green-500 p-4"
           onClick={() => {
             navigate("/tickets/create");
           }}
         >
-          New Ticket
+          Add Ticket
         </button>
       </div>
       <div className="w-100% my-10 mx-3 flex flex-row">
@@ -104,11 +106,12 @@ const Board = () => {
       </div>
       <div>
         <ul className="mx-4">
-          <div>Backlog</div>
+          <div className="text-xl my-4 text-amber-300">Backlog</div>
           {tickets
             .filter(
               (ticket) =>
-                ticket.boardId === activeBoard.id && [1, 5].includes(ticket.statusId)
+                ticket.boardId === activeBoard.id &&
+                [1, 5].includes(ticket.statusId)
             )
             .map((ticket, i) => (
               <li

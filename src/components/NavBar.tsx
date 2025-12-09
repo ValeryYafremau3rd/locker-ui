@@ -21,6 +21,22 @@ export default function () {
         </li>
         <li className="inline-block">
           <NavLink
+            to="/boards"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Boards
+          </NavLink>
+        </li>
+        <li className="inline-block">
+          <NavLink
+            to="/tickets"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Tickets
+          </NavLink>
+        </li>
+        <li className="inline-block">
+          <NavLink
             to="/login"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
