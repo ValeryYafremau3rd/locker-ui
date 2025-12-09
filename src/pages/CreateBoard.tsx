@@ -13,7 +13,7 @@ const CreateBoard = () => {
 
   useEffect(() => {
     if (activeBoard.id && status === "complete") {
-      navigate("/board/" + activeBoard.id);
+      navigate("/boards/" + activeBoard.id);
     }
   }, [activeBoard, status]);
 
