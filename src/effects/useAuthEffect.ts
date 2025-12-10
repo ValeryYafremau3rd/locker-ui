@@ -10,7 +10,7 @@ export default function useAuthEffect() {
 
   useEffect(() => {
     if (getAuthToken() && status === "complete") {
-      navigate("/me");
+      navigate("/boards");
     }
   }, [navigate, status]);
 }

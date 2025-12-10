@@ -18,10 +18,11 @@ const Signup = () => {
     <div className="flex justify-center items-center h-screen  ">
       <form
         onSubmit={handleSignup}
-        className="flex justify-center items-center flex-col bg-amber-100 p-5 rounded-md"
+        className="flex justify-center items-center flex-col bg-amber-100 p-5 "
       >
         <div>
-          <input className="bg-gray-400 m-3 rounded-sm p-2"
+          <input
+            className="bg-gray-400 m-3  p-2"
             type="text"
             placeholder="username"
             value={username}
@@ -29,7 +30,8 @@ const Signup = () => {
           />
         </div>
         <div>
-          <input className="bg-gray-400 m-3 rounded-sm p-2"
+          <input
+            className="bg-gray-400 m-3 p-2"
             type="password"
             placeholder="password"
             value={password}
@@ -37,7 +39,9 @@ const Signup = () => {
           />
         </div>
         <div className="w-1/1">
-          <button type="submit"  className="m-3 p-2 float-right bg-green-600">Signup</button>
+          <button type="submit" className="m-3 p-2 float-right bg-green-600">
+            Signup
+          </button>
         </div>
       </form>
     </div>
