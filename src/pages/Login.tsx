@@ -18,10 +18,10 @@ const Login = () => {
     <div className="flex justify-center items-center h-screen  ">
       <form
         onSubmit={handleLogin}
-        className="flex justify-center items-center flex-col bg-amber-100 p-5 rounded-md"
+        className="flex justify-center items-center flex-col bg-amber-100 p-5 "
       >
         <div>
-          <input className="bg-gray-400 m-3 rounded-sm p-2"
+          <input className="bg-gray-400 m-3  p-2"
             type="text"
             placeholder="username"
             value={username}
@@ -29,7 +29,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <input className="bg-gray-400 m-3 rounded-sm p-2"
+          <input className="bg-gray-400 m-3 p-2"
             type="password"
             placeholder="password"
             value={password}
