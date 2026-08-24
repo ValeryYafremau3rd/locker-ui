@@ -1,20 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBoard } from "../redux/reducers/board.slice";
 import { useParams, useNavigate } from "react-router-dom";
 import type { RootState } from "../redux/reducers/rootReducer";
+
 import {
   deleteTicket,
   getTicket,
   getTickets,
 } from "../redux/reducers/ticket.slice";
+import startMove from "../services/drag&drop.service";
 
 const Board = () => {
+  const ticketElRef = useRef(null);
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { activeBoard } = useSelector((state: RootState) => state.boards);
   const { tickets } = useSelector((state: RootState) => state.tickets);
+
+  function mouseUp(e) {
+    e.preventDefault();
+    console.log("onmouseup");
+  }
 
   useEffect(() => {
     dispatch(getBoard({ id }));
@@ -37,7 +45,17 @@ const Board = () => {
         </button>
       </div>
       <div className="w-100% my-10 mx-3 flex flex-row">
-        <div className="flex-1 p-3 border-amber-50 border-1 text-center">
+        <div
+          className="flex-1 p-3 border-amber-50 border-1 text-center"
+          onDragOver={(e) => {
+            e.preventDefault();
+            console.log("dragover");
+          }}
+          onDrop={(e) => {
+            e.preventDefault();
+            console.log("dragdrop");
+          }}
+        >
           <div>To Do</div>
           <div>
             <ul className="mx-4">
@@ -116,7 +134,9 @@ const Board = () => {
             .map((ticket, i) => (
               <li
                 key={ticket.id}
-                className="m-1 py-2 px-5 text-black-500 border-1 bg-white-400 border-white-950"
+                className="m-1 py-2 px-5 text-black-500 border-1 cursor-pointer border-white-950 relative"
+                draggable
+                /*onMouseDown={startMove}*/
               >
                 <a onClick={() => navigate("/tickets/" + ticket.id)}>
                   {ticket.title}
